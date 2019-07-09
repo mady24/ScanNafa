@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/shared.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -37,53 +38,136 @@ class _ViewPrice extends State<ViewPrice>{
     });
   }
 
+  Material myItems(String image, String heading, int color){
+    return Material(
+      color: Colors.white,
+      elevation: 3.0,
+      shadowColor: Color(color),
+      borderRadius: BorderRadius.circular(24.0),
+      child: InkWell(
+        onTap: ()  => onPressed("/validate"),
+    child: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    borderRadius: BorderRadius.circular(24.0),
+                    child:Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Image.asset(
+                        image,
+                        height: 80.0,
+                        width: 80.0, 
+                      ),
+                    ),
+                  ),
+                /*Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(heading, 
+                    style: TextStyle(
+                      color: new Color(color),
+                       fontSize: 10.0,
+                    ),
+                    ),
+                  ),
+                ),*/
+                
+              ],
+            )
+          ],
+        ),
+      )
+    ),
+  ),
+  );
+}
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      appBar: new AppBar(
+        backgroundColor: Color(0xffffffff),
+        elevation: 0.0,
+        title: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Image.asset('assets/logo.png', height: 45.0,alignment: Alignment.center,),
+            ),
+            Expanded(
+              flex: 4,
+              child: Text('Effectuer un paiement', style: TextStyle(fontFamily: 'Dosis', color: Colors.black)),
+            )
+          ],
+        ),
+      ),
       body: Column(
         children: <Widget>[
-          Container(
+          Material(
+              elevation: 14.0,
+              shadowColor: Color(0x802196F3),
             child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+              height: 150.0,
+              decoration: new BoxDecoration(
+                  image: DecorationImage(image: AssetImage('assets/happy-intersection.png'),fit: BoxFit.fitHeight, alignment: Alignment.centerLeft,colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.1), BlendMode.dstATop)),
+                  border: Border(bottom: BorderSide(color: Color(0xff323E40).withOpacity(0.5)),top: BorderSide(color: Color(0xff323E40).withOpacity(0.1))),
+              ),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+                child:Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                      
-                      child: Image.asset('assets/logo.png', height: 120.0, width: 120.0, ),
-                    ),
+                  Row(
+                      children: <Widget>[
+                       Expanded(
+                        flex: 5,
+                        child: SizedBox(height: 1.0,),
+                      ),
+                      Expanded(
+                        flex: 7,
+                        child:Text('Solde disponible', style: TextStyle(color: Colors.black, fontFamily: 'Dosis', fontSize: 25.0),textAlign: TextAlign.left,),
+                      ),
+                      ],
+                  ),
+                  Row(
+                      children: <Widget>[
+                       Expanded(
+                        flex: 5,
+                        child: Text('Fcfa', style: TextStyle(fontFamily: 'Dosis', fontSize: 25.0, color: Colors.black), textAlign: TextAlign.center,),
+                      ),
+                      Expanded(
+                        flex: 7,
+                        child: Text(this.price, style: TextStyle(fontFamily: 'Dosis', fontSize: 40.0, color: Colors.black, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),textAlign: TextAlign.left,)
+                      )
+                    ],
+                  ),
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 5,
+                        child: SizedBox(height: 1.0,),
+                      ),
+                      Expanded(
+                        flex: 7,
+                        child: Text('Code Scanné avec succès', style: TextStyle(fontFamily: 'Dosis', fontSize: 20.0, color: Colors.black, fontStyle: FontStyle.normal),)
+                      ),
+                    ],
                   ),
                 ],
               ),
+              )
+            )
             ),
-          ),
-          Container(
-              child: Container(
-                          child: Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text("Code Scanne avec success",
-                            style: TextStyle(
-                              color: Colors.black45,
-                              fontFamily: 'Dosis',
-                              fontSize: 15.0
-                            ),
-                            ),
-                          ),
-                        ),
-          ),
-          Container(
-            child: Container(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                            child: Divider(
-                              color: Colors.grey[400],
-                            ),
-                          ),
-                        ),
-            
-          ),
-          Container(
+           Container(
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -92,46 +176,15 @@ class _ViewPrice extends State<ViewPrice>{
                       children: <Widget>[
                         Container(
                           child: Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text("Somme a payer:",
+                            padding: const EdgeInsets.all(15.0),
+                            child: Text("Choisir le mode de payement:",
                             style: TextStyle(
                               color: Colors.black,
                               fontFamily: 'Dosis',
-                              fontSize: 40.0
+                              fontSize: 20.0
                             ),
                             ),
                           ),
-                        ),
-                        Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  child: Padding(
-                                   padding: const EdgeInsets.all(2.0),
-                                   child: Text('${this.price}',
-                                    style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Dosis',
-                                    fontSize: 40.0
-                                    ),
-                                  ),
-                                  ),
-                                ),
-                                Container(
-                                  child: Padding(
-                                   padding: const EdgeInsets.all(2.0),
-                                   child: Text("F cfa",
-                                    style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Dosis',
-                                    fontSize: 20.0
-                                    ),
-                                  ),
-                                  ),
-                                ),
-                              ],
-                        ),
                         ),
                       ],
                     ),
@@ -139,27 +192,25 @@ class _ViewPrice extends State<ViewPrice>{
                 ),
           ),
           Container(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
-        child: Container(
-                        width: 150.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 242, 68, 114),
-                          borderRadius: new BorderRadius.circular(30.0),
-                        ),
-                          
-                        child: new Material(
-                          child: MaterialButton(
-                            child: Text('suivant', style: new TextStyle(fontSize: 20.0, color: Colors.white, fontFamily: 'Dosis')),
-                            onPressed: () => onPressed('/choose'),
-                            highlightColor: Colors.orange.withOpacity(0.5),
-                            splashColor: Colors.orange.withOpacity(0.5),
-                          ),
-                          color: Colors.transparent,
-                          borderRadius: new BorderRadius.circular(30.0),
-                        ),
-                        ),
+            height: 250.0,
+          child: StaggeredGridView.count(
+             crossAxisCount: 2,
+             crossAxisSpacing: 20.0,
+             mainAxisSpacing: 20.0,
+             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        children: <Widget>[
+          myItems("assets/om.png", "Orange Money", 0xffe65100),
+          myItems("assets/emoney.png", "E-money", 0xffba68c8),
+          myItems("assets/wari.png", "Wari", 0xff00c853),
+          myItems("assets/tigo.png", "Tigo cash", 0xff1a237e),
+        ],
+        staggeredTiles: [
+          StaggeredTile.extent(1, 130.0),
+          StaggeredTile.extent(1, 130.0),
+          StaggeredTile.extent(1, 130.0),
+          StaggeredTile.extent(1, 130.0),
+          StaggeredTile.extent(1, 130.0),
+        ],
           ),
           ),
         ],

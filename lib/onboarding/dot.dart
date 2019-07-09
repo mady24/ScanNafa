@@ -31,7 +31,7 @@ class DotsIndicator extends AnimatedWidget {
   static const double _kMaxZoom = 2.0;
 
   // The distance between the center of each dot
-  static const double _kDotSpacing = 30.0;
+  static const double _kDotSpacing = 60.0;
 
   Widget _buildDot(int index) {
     double selectedness = Curves.easeOut.transform(
@@ -45,7 +45,7 @@ class DotsIndicator extends AnimatedWidget {
       width: _kDotSpacing,
       child: new Center(
         child: new Material(
-          color: color,
+          color: Color.fromARGB(255, 242, 171, 39),
           type: MaterialType.circle,
           child: new Container(
             width: _kDotSize * zoom,

@@ -1,3 +1,4 @@
+import 'package:dashboard/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:dashboard/font_awesome_flutter.dart';
 import 'package:dashboard/loginsignup/authentication.dart';
@@ -75,12 +76,8 @@ onPressed(String routeName) {
       _title = 'Faire un paiement';
     if(page == 1)
       _title = 'Faire un paiement';
-     if(page == 3)
-      _title = 'Dernier code scanné';
      if(page == 2)
       _title = 'Scanner';
-     if(page == 4)
-      _title = 'Historique';
     });
   }
 
@@ -89,19 +86,9 @@ onPressed(String routeName) {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: new AppBar(
-         leading: IconButton(icon:Icon(Icons.arrow_back),
-          onPressed:() => Navigator.pop(context),
-        ),
-        title: new Text(
-          _title,
-          style: TextStyle(fontFamily: 'Dosis'),
-        ),
-      ),
+      
       body: new PageView(
         children: [
-          new List(page: _page),
-          new List(page: _page),
           new List(page: _page),
           new List(page: _page),
           new List(page: _page),
@@ -111,28 +98,20 @@ onPressed(String routeName) {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        fixedColor: Color.fromARGB(255, 242, 68, 114),
+        fixedColor: Color(0xfff2ab27),
         onTap: navigationTapped,
         currentIndex: _page,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.home),
+            icon: new Icon(CustomIcons.application__1_),
             title: new Text('Accueil', style: TextStyle(fontFamily: 'Dosis'),),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.chartLine),
+            icon: new Icon(CustomIcons.pay),
             title: new Text('Paiement', style: TextStyle(fontFamily: 'Dosis'),),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.camera),
-            title: new Text('scanner', style: TextStyle(fontFamily: 'Dosis'),),
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.qrcode),
-            title: new Text('Dernier Scan', style: TextStyle(fontFamily: 'Dosis'),),
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.history),
+            icon: new Icon(CustomIcons.invoice),
             title: new Text('Historique', style: TextStyle(fontFamily: 'Dosis'),),
           )
         ],

@@ -20,10 +20,11 @@ class CustomIcons {
 
   static const _kFontFam = 'CustomIcons';
 
-  static const IconData happy_intersection = const IconData(0xe800, fontFamily: _kFontFam);
-  static const IconData home = const IconData(0xe801, fontFamily: _kFontFam);
-  static const IconData invoice = const IconData(0xe802, fontFamily: _kFontFam);
-  static const IconData pay = const IconData(0xe803, fontFamily: _kFontFam);
-  static const IconData qr_code = const IconData(0xe804, fontFamily: _kFontFam);
-  static const IconData wallet = const IconData(0xe807, fontFamily: _kFontFam);
+  static const IconData home = const IconData(0xe800, fontFamily: _kFontFam);
+  static const IconData happy_intersection = const IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData wallet = const IconData(0xe806, fontFamily: _kFontFam);
+  static const IconData invoice = const IconData(0xe807, fontFamily: _kFontFam);
+  static const IconData qr_code = const IconData(0xe808, fontFamily: _kFontFam);
+  static const IconData pay = const IconData(0xe809, fontFamily: _kFontFam);
+  static const IconData application__1_ = const IconData(0xe80a, fontFamily: _kFontFam);
 }

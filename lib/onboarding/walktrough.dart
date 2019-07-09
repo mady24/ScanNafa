@@ -57,14 +57,14 @@ class _WalkthroughScreen extends State<WalkthroughScreen> {
           ),
           
           new Positioned(
-            bottom: 50.0,
+            bottom: 20.0,
             left: 0.0,
             right: 0.0,
             child: new SafeArea(
               child: new Column(
                 children: <Widget>[
                   new Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: new DotsIndicator(
                       controller: _controller,
                       itemCount: _pages.length,
@@ -80,24 +80,14 @@ class _WalkthroughScreen extends State<WalkthroughScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      /*new Container(
+                      new Container(
                         width: 150.0,
                         height: 50.0,
-                        decoration: BoxDecoration(
-                          gradient: new LinearGradient(
-                            colors: [
-                              Colors.orange[600],
-                              Colors.orange[900],
-                            ],
-                            begin: Alignment(0.5, -1.0),
-                            end: Alignment(0.5, 1.0)
-                          ),
-                          borderRadius: new BorderRadius.circular(30.0),
-                        ),
+                        
                         child: new Material(
                           child: MaterialButton(
-                            child: Text('I\'M NEW',
-                              style: Theme.of(context).textTheme.button.copyWith(color: Colors.white),
+                            child: Text('Passer',
+                              style: Theme.of(context).textTheme.button.copyWith(color: Colors.black, fontFamily: 'Dosis', fontSize: 20.0),
                             ),
                             onPressed: () => onPressed(_link),
                             highlightColor: Colors.orange.withOpacity(0.5),
@@ -106,21 +96,17 @@ class _WalkthroughScreen extends State<WalkthroughScreen> {
                           color: Colors.transparent,
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
-                      ),*/
+                      ),
                       new Container(
                         width: 150.0,
                         height: 50.0,
-                        decoration: BoxDecoration(
-                          borderRadius: new BorderRadius.circular(30.0),
-                          border: Border.all(color: Colors.black, width: 1.0),
-                          color: Colors.transparent,
-                        ),
+                        
                         child: new Material(
                           child: MaterialButton(
-                            child: Text('LOG IN',
-                              style: TextStyle(color: Colors.black, fontFamily: 'Dosis', fontWeight: FontWeight.bold),
+                            child: Text('Suivant',
+                              style: TextStyle(color: Colors.black, fontFamily: 'Dosis', fontSize: 20.0),
                             ),
-                            onPressed: () => onPressed(_link),
+                            onPressed: () => {},
                             highlightColor: Colors.white30,
                             splashColor: Colors.white30,
                           ),

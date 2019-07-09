@@ -71,6 +71,10 @@ flutter:
     - stratup2.png
     - stratup3.png
     - bg.png
+    - happy-intersection.png
+    - undraw_getting_coffee_wntr.png
+    - undraw_night_calls_5jh7.png
+    - undraw_wallet_aym5.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -92,7 +96,9 @@ flutter:
          - asset: fonts/Dosis-Light.ttf
          - asset: fonts/Dosis-Medium.ttf
          - asset: fonts/Dosis-SemiBold.ttf
-         - asset: fonts/CustomIcons.ttf
+     - family:  CustomIcons
+       fonts:
+         - asset: fonts/CustomIcons.ttf  
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
