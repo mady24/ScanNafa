@@ -8,6 +8,8 @@ import 'package:dashboard/landingpage.dart';
 import 'package:dashboard/loginsignup/login.dart';
 import 'package:dashboard/loginsignup/loginvendeur.dart';
 import 'package:dashboard/shared.dart';
+import 'package:dashboard/navigationclient/lastscan.dart';
+import 'package:dashboard/navigationclient/scan.dart';
 
 
 
@@ -20,10 +22,11 @@ class Routes{
     "/login": (BuildContext context) => new Login(auth: new Auth()),
     "/loginvendeur": (BuildContext context) => new LoginVendeur(auth: new Auth()),
     "/dashboardclient": (BuildContext context) => ChangeDashboard(),
+    "/bottomnavclient/0": (BuildContext context) => ChangeClientBottomNav(pagetarget: 0),
     "/bottomnavclient/1": (BuildContext context) => ChangeClientBottomNav(pagetarget: 1),
     "/bottomnavclient/2": (BuildContext context) => ChangeClientBottomNav(pagetarget: 2),
-    "/bottomnavclient/3": (BuildContext context) => ChangeClientBottomNav(pagetarget: 3),
-    "/bottomnavclient/4": (BuildContext context) => ChangeClientBottomNav(pagetarget: 4),
+    "/scan": (BuildContext context) => ScanScreen(),
+    "/lastScan": (BuildContext context) => Lastscan(),
     "/vendeur": (BuildContext context) => new ChangeVendeurBottomNav(),
   };
 

@@ -34,6 +34,22 @@ class _Lastscan extends State<Lastscan>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+         appBar: new AppBar(
+        backgroundColor: Color(0xffffffff),
+        elevation: 0.0,
+        title: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Image.asset('assets/logo.png', height: 45.0,alignment: Alignment.centerLeft,),
+            ),
+            Expanded(
+              flex: 7,
+              child: Text('Drenier paiement effectué', style: TextStyle(fontFamily: 'Dosis', color: Colors.black), textAlign: TextAlign.center,),
+            )
+          ],
+        ),
+      ),
          body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

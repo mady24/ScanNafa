@@ -1,3 +1,4 @@
+import 'package:dashboard/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:dashboard/font_awesome_flutter.dart';
 import 'package:dashboard/navigationvendeur/wallet.dart';
@@ -76,21 +77,7 @@ onPressed(String routeName) {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: new AppBar(
-         leading: IconButton(icon:Icon(Icons.arrow_back),
-          onPressed:() => Navigator.pop(context),
-        ),
-        title: new Text(
-          _title,
-          style: TextStyle(fontFamily: 'Dosis'),
-        ),
-        actions: <Widget>[
-            new FlatButton(
-                child: new Text('Logout',
-                    style: new TextStyle(fontSize: 17.0, color: Color.fromARGB(255, 242, 68, 114), fontFamily: 'Dosis')),
-                onPressed: _signOut)
-          ],
-      ),
+      
       body: new PageView(
         children: [
           new Wallet(),
@@ -102,20 +89,20 @@ onPressed(String routeName) {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        fixedColor: Color.fromARGB(255, 242, 68, 114),
+        fixedColor: Color(0xfff2ab27),
         onTap: navigationTapped,
         currentIndex: _page,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.wallet),
+            icon: new Icon(CustomIcons.wallet),
             title: new Text('Accueil', style: TextStyle(fontFamily: 'Dosis'),),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.chartLine),
+            icon: new Icon(CustomIcons.pay),
             title: new Text('Paiement', style: TextStyle(fontFamily: 'Dosis'),),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.history),
+            icon: new Icon(CustomIcons.invoice),
             title: new Text('scanner', style: TextStyle(fontFamily: 'Dosis'),),
           ),
         ],

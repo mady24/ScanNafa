@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/navigationvendeur/setprice.dart';
 import 'package:dashboard/navigationvendeur/generatecode.dart';
-import 'package:dashboard/navigationclient/paiement/done.dart';
+import 'package:dashboard/navigationvendeur/done.dart';
 
 class GetPaiement extends StatefulWidget{
   @override

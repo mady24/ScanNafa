@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/navigationclient/history.dart';
-import 'package:dashboard/navigationclient/lastscan.dart';
-import 'package:dashboard/navigationclient/scan.dart';
 import 'package:dashboard/navigationclient/changeclientpaiement.dart';
 
 
@@ -26,15 +24,9 @@ class _List extends State<List>{
   Widget build(BuildContext context){
     switch(_page){
       case 1:
-      return ChangeClientPaiement();
+      return ChangeClientPaiement(back: false);
       break;
       case 2:
-      return ScanScreen();
-      break;
-      case 3:
-      return Lastscan();
-      break;
-      case 4:
       return History("historique");
       break;
     }

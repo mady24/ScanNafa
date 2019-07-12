@@ -45,12 +45,6 @@ onPressed(String routeName) {
     if(_page == 2){
        _title = "Scanner";
     }
-    if(_page == 3){
-       _title = "Dernier code scanné";
-    }
-    if(_page == 4){
-       _title = "Historique";
-    }
   }
 
   @override

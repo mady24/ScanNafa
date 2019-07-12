@@ -35,14 +35,14 @@ class _ChangeDashboard extends State<ChangeDashboard>{
       Navigator.of(context).pushNamed(routeName);
     }
 
-Material myItems(IconData icon, String heading, int color, int color1, int page){
+Material myItems(IconData icon, String heading, int color, int color1, String page){
   return Material(
     color: Color(color),
     elevation: 14.0,
     shadowColor: Color(0x802196F3),
     borderRadius: BorderRadius.circular(24.0),
     child: GestureDetector(
-      onTap: () =>  onPressed("/bottomnavclient/$page"),
+      onTap: () =>  onPressed(page),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -139,7 +139,7 @@ Widget build(BuildContext context){
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('Fcfa', style: TextStyle(fontFamily: 'Dosis', fontSize: 25.0, color: Colors.black), textAlign: TextAlign.right,),
-                      Text('57540.00', style: TextStyle(fontFamily: 'Dosis', fontSize: 40.0, color: Colors.black, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),)
+                      Text('57540.00', style: TextStyle(fontFamily: 'Euro', fontSize: 40.0, color: Colors.black, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),)
                     ],
                   ),
                    Row(
@@ -172,10 +172,10 @@ Widget build(BuildContext context){
         mainAxisSpacing:12.0,
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         children: <Widget>[
-          myItems(CustomIcons.application__1_, "Scanner un Qr Code", 0xfff2ab27, 0xff000000, 2),
-          myItems(CustomIcons.pay, "Paiement", 0xff323E40, 0xffffffff, 1),
-          myItems(CustomIcons.qr_code, "Dernier Qr scan", 0xff323E40, 0xffffffff, 3),
-          myItems(CustomIcons.invoice, "Historique", 0xff323E40, 0xffffffff, 4),
+          myItems(CustomIcons.happy_intersection, "Scanner un Qr Code", 0xfff2ab27, 0xff000000, '/scan'),
+          myItems(CustomIcons.pay, "Paiement", 0xff323E40, 0xffffffff, '/bottomnavclient/1'),
+          myItems(CustomIcons.qr_code, "Dernier Qr scan", 0xff323E40, 0xffffffff, '/lastScan'),
+          myItems(CustomIcons.invoice, "Historique", 0xff323E40, 0xffffffff, '/bottomnavclient/2'),
         ],
         staggeredTiles: [
           StaggeredTile.extent(1, 150.0),

@@ -42,6 +42,22 @@ class _ScanState extends State<ScanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+         appBar: new AppBar(
+        backgroundColor: Color(0xffffffff),
+        elevation: 0.0,
+        title: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Image.asset('assets/logo.png', height: 45.0,alignment: Alignment.centerLeft,),
+            ),
+            Expanded(
+              flex: 7,
+              child: Text('Scanner un code', style: TextStyle(fontFamily: 'Dosis', color: Colors.black), textAlign: TextAlign.center,),
+            )
+          ],
+        ),
+      ),
         body: new Center(
       child: new SizedBox(
         height: 600.0,
