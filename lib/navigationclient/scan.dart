@@ -70,7 +70,8 @@ class _ScanState extends State<ScanScreen> {
           qrCodeCallback: (code) {
             setState(() {
               scanned = code;
-              save('scannedqr', code);
+              save('scannedqr', scanned['price']);
+              save('seller', scanned['seller']);
 
               onPressed("/bottomnavclient/1");
             });

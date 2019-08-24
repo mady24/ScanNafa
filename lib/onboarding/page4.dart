@@ -19,20 +19,23 @@ class Page4 extends StatelessWidget {
           new Positioned.fill(
             child: Padding(
               padding: const EdgeInsets.all(50.0),
-            child: Column(
+           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 20.0),
+                child: Text("Wallet", style: TextStyle(fontFamily: 'Dosis', fontSize: 30.0)),
+                ),
                 SizedBox(
                   child: Image(
-                    image: AssetImage(Assets.pose1),
+                    image: AssetImage("assets/wallet-3.png"),
                     fit: BoxFit.fitHeight,
                   ),
-                  height: IMAGE_SIZE,
-                  width: IMAGE_SIZE,
                 ),
                 new Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Acceptez tous types de paiements électroniques',
+                  padding: const EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 20.0),
+                  child: Text("Acceptez tous les paiements électroniques et ne vous fatiguez plus avec votre portefeuille",
                     style: TextStyle(color: Colors.black, fontSize: 20.0, fontFamily: 'Dosis'),
                     textAlign: TextAlign.center,
                   ),

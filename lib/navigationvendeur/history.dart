@@ -113,19 +113,40 @@ Material myItems(String image, String date, String name, String ref, String time
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xffffffff),
+        title: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 6,
+              child: Text('Historique',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Dosis',
+                      fontSize: 18.0)),
+            ),
+            Expanded(
+              flex: 2,
+              child: Image.asset('assets/logo.png', height: 45.0),
+            )
+          ],
+        ),
+      ),
      body: StaggeredGridView.count(
         crossAxisCount: 2,
         crossAxisSpacing: 12.0,
         mainAxisSpacing: 12.0,
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         children: <Widget>[
-          myItems("assets/om.png", "10/10/2018", "Diallo boutiquier", "RS°3540", "22H02", "810", 0xffed622b),
-          myItems("assets/om.png", "10/102018", "Auchan", "RS°0020", "22H30", "4000", 0xffed622b),
-          myItems("assets/emoney.png", "10/10/2018", "Total Castor", "RS°5215", "23H10", "30000", 0xffed622b),
-          myItems("assets/om.png", "11/10/2018", "Diallo boutiquier", "RS°3540", "09H00", "250", 0xffed622b),
-          myItems("assets/wari.png", "11/10/2018", "Bus DDD", "RS°6524", "09H30", "150", 0xffed622b),
-          myItems("assets/emoney.png", "12/10/2018", "Diallo boutiquier", "RS°3540", "08H02", "2500", 0xffed622b),
-          myItems("assets/emoney.png", "12/10/2018", "Wonderfood", "RS°15648", "23H58", "810", 0xffed622b),
+          myItems("assets/om.png", "10/10/2018", "773427172", "RS°3540", "22H02", "810", 0xffed622b),
+          myItems("assets/om.png", "10/102018", "778506457", "RS°0020", "22H30", "4000", 0xffed622b),
+          myItems("assets/emoney.png", "10/10/2018", "705648245", "RS°5215", "23H10", "30000", 0xffed622b),
+          myItems("assets/om.png", "11/10/2018", "775689457", "RS°3540", "09H00", "250", 0xffed622b),
+          myItems("assets/wari.png", "11/10/2018", "765824968", "RS°6524", "09H30", "150", 0xffed622b),
+          myItems("assets/emoney.png", "12/10/2018", "702648745", "RS°3540", "08H02", "2500", 0xffed622b),
+          myItems("assets/emoney.png", "12/10/2018", "705697852", "RS°15648", "23H58", "810", 0xffed622b),
         ],
         staggeredTiles: [
           StaggeredTile.extent(2, 130.0),

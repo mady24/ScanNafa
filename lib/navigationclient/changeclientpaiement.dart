@@ -5,6 +5,7 @@ import 'package:dashboard/navigationclient/paiement/choose.dart';
 import 'package:dashboard/navigationclient/paiement/confirme.dart';
 import 'package:dashboard/navigationclient/paiement/validate.dart';
 import 'package:dashboard/navigationclient/paiement/done.dart';
+import 'package:dashboard/navigationclient/paiement/show.dart';
 
 class ChangeClientPaiement extends StatefulWidget{
   ChangeClientPaiement({Key key, this.back}): super(key: key);
@@ -27,6 +28,7 @@ class _ChangeClientPaiement extends State<ChangeClientPaiement>{
   
   var routes = <String, WidgetBuilder>{
    
+    "/show": (BuildContext context) => new Show(),
     "/view": (BuildContext context) => new ViewPrice(),
     "/choose": (BuildContext context) => ChoosePayway(),
     "/confirme": (BuildContext context) => ConfirmePayWay(),
@@ -39,7 +41,7 @@ class _ChangeClientPaiement extends State<ChangeClientPaiement>{
   Widget build(BuildContext context) {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
-     home: ViewPrice(),
+     home: Show(),
      routes: routes,
    );
   }

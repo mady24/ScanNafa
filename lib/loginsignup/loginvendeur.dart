@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/loginsignup/login_signup_page.dart';
 import 'package:dashboard/loginsignup/authentication.dart';
-import 'package:dashboard/changedashboard.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dashboard/navigationvendeur/changevendeurbottomnav.dart';
 
 
@@ -24,6 +24,12 @@ class _LoginVendeur extends State<LoginVendeur>{
   AuthStatus authStatus = AuthStatus.NOT_DETERMINED;
   String _userId = "";
 
+  Future<bool> sharedPricePreference(String price) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setString("uid", price);
+  return prefs.commit();
+}
+
   @override
   void initState(){
     super.initState();
@@ -45,6 +51,7 @@ class _LoginVendeur extends State<LoginVendeur>{
     });
     setState(() {
       authStatus = AuthStatus.LOGGED_IN;
+      sharedPricePreference(_userId);
     });
   }
 
@@ -78,7 +85,7 @@ class _LoginVendeur extends State<LoginVendeur>{
       case AuthStatus.LOGGED_IN:
         if(_userId.length > 0 && _userId != null){
           return new ChangeVendeurBottomNav(
-            title: "Mkoba",
+            title: "Ska'Nafa",
             userId: _userId,
             auth: widget.auth,
             onSignedOut: _onSignedOut,

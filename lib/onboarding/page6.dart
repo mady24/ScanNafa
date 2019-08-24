@@ -23,22 +23,26 @@ class Page6 extends StatelessWidget {
               padding: const EdgeInsets.all(50.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 20.0),
+                child: Text("Qr CODE", style: TextStyle(fontFamily: 'Dosis', fontSize: 30.0)),
+                ),
                 SizedBox(
                   child: Image(
-                    image: AssetImage(Assets.pose3),
+                    image: AssetImage("assets/order_confirmed_2.png"),
                     fit: BoxFit.fitHeight,
                   ),
-                  height: 100.0,
-                  width: 150.0,
                 ),
                 new Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Saisissez le montant et générez un Code à partir duquel votre client paiera.',
+                  padding: const EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 20.0),
+                  child: Text("Saisissez un montant et générez un montant à partir duquel le client vous paiera",
                     style: TextStyle(color: Colors.black, fontSize: 20.0, fontFamily: 'Dosis'),
                     textAlign: TextAlign.center,
                   ),
                 ),
+                
               ],
             ),
           )

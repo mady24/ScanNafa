@@ -16,6 +16,34 @@ class _WalletDetail extends State<WalletDetail>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: true,
+        backgroundColor: Color(0xffffffff),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Color(0xff000000),
+          ),
+          onPressed: () => Navigator.of(context).pushNamed("/list"),
+        ),
+        title: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 6,
+              child: Text('Details',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Dosis',
+                      fontSize: 18.0)),
+            ),
+            Expanded(
+              flex: 2,
+              child: Image.asset('assets/logo.png', height: 45.0),
+            )
+          ],
+        ),
+      ),
      body: Column(
        mainAxisAlignment: MainAxisAlignment.center,
        children: <Widget>[
@@ -195,8 +223,8 @@ class _WalletDetail extends State<WalletDetail>{
                         width: 150.0,
                         height: 50.0,
                         decoration: BoxDecoration(
-                         color: Color.fromARGB(255, 242, 68, 114),
-                          borderRadius: new BorderRadius.circular(30.0),
+                         color: Color(0xfff2ab27),
+                          borderRadius: new BorderRadius.circular(15.0),
                         ),
                           
                         child: new Material(
@@ -235,8 +263,8 @@ class _WalletDetail extends State<WalletDetail>{
                         width: 150.0,
                         height: 50.0,
                         decoration: BoxDecoration(
-                         color: Color.fromARGB(255, 242, 68, 114),
-                          borderRadius: new BorderRadius.circular(30.0),
+                         color: Color(0xff323e40),
+                          borderRadius: new BorderRadius.circular(15.0),
                         ),
                           
                         child: new Material(

@@ -106,6 +106,27 @@ Material myItems(String image, String name, String amount, int color){
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: true,
+        backgroundColor: Color(0xffffffff),
+        title: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 6,
+              child: Text('Wallet',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Dosis',
+                      fontSize: 18.0)),
+            ),
+            Expanded(
+              flex: 2,
+              child: Image.asset('assets/logo.png', height: 45.0),
+            )
+          ],
+        ),
+      ),
      body: StaggeredGridView.count(
         crossAxisCount: 2,
         crossAxisSpacing: 12.0,

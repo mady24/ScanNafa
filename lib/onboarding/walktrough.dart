@@ -106,7 +106,7 @@ class _WalkthroughScreen extends State<WalkthroughScreen> {
                             child: Text('Suivant',
                               style: TextStyle(color: Colors.black, fontFamily: 'Dosis', fontSize: 20.0),
                             ),
-                            onPressed: () => {},
+                            onPressed: () => {page = page+1},
                             highlightColor: Colors.white30,
                             splashColor: Colors.white30,
                           ),

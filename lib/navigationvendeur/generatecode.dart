@@ -3,12 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dashboard/loginsignup/authentication.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 class GenerateCode extends StatefulWidget{
+  GenerateCode({Key key, this.auth, this.userId}) : super(key: key);
+   final BaseAuth auth;
+  final String userId;
   @override
   _GenerateCode createState() => new _GenerateCode();
 }
+
+
 
 Future<String> getpricePrefrence() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -16,14 +23,23 @@ Future<String> getpricePrefrence() async {
   return price;
 }
 
+/*Future<String> getuidPrefrence() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String uid = prefs.getString("uid");
+  return uid;
+}*/
+
 class _GenerateCode extends State<GenerateCode>{
+  var id;
   String _price = "";
+  SharedPreferences prefs;
   onPressed(String routeName) {
       Navigator.of(context).pushNamed(routeName);
     }
   @override
   void initState(){
     getpricePrefrence().then(updatePrice);
+    
         super.initState();
       }
     
@@ -124,7 +140,7 @@ class _GenerateCode extends State<GenerateCode>{
                 child:  Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 25.0),
                   child: QrImage(
-                    data: "$_price",
+                    data: "{['price': $_price]}",
                     size: 200.0,
                   )
                 ),

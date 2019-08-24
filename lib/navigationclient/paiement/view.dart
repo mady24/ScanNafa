@@ -11,11 +11,21 @@ class ViewPrice extends StatefulWidget {
 }
 
 class _ViewPrice extends State<ViewPrice> {
+  bool isNull;
   String price;
+  var prix;
+  TextEditingController _priceController;
   SharedPreferences _prefs;
   static const String key = "scannedqr";
   onPressed(String routeName) {
     Navigator.of(context).pushNamed(routeName);
+  }
+
+  save(cle, value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //final scanned = 42;
+    prefs.setString(cle, value);
+    print('saved $cle $value');
   }
 
   void _loadprice() {
@@ -31,6 +41,7 @@ class _ViewPrice extends State<ViewPrice> {
       ..then((prefs) {
         setState(() => this._prefs = prefs);
         _loadprice();
+       
       });
   }
 
@@ -41,7 +52,9 @@ class _ViewPrice extends State<ViewPrice> {
       shadowColor: Color(color),
       borderRadius: BorderRadius.circular(24.0),
       child: InkWell(
-        onTap: () => onPressed("/validate"),
+        onTap: () => {
+          
+          onPressed("/validate")},
         child: Center(
             child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -144,7 +157,7 @@ class _ViewPrice extends State<ViewPrice> {
                             Expanded(
                               flex: 7,
                               child: Text(
-                                'Solde disponible',
+                                'Somme à payer',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: 'Dosis',
@@ -169,7 +182,7 @@ class _ViewPrice extends State<ViewPrice> {
                             ),
                             Expanded(
                                 flex: 7,
-                                child: Text(
+                                child: isNull == false?Text(
                                   this.price,
                                   style: TextStyle(
                                       fontFamily: 'Dosis',
@@ -178,7 +191,13 @@ class _ViewPrice extends State<ViewPrice> {
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w500),
                                   textAlign: TextAlign.left,
-                                ))
+                                ):TextFormField(
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Dosis',
+                                    fontSize: 25.0),
+                                    controller: _priceController,
+                              ),)
                           ],
                         ),
                         Row(

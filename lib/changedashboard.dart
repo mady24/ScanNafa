@@ -164,27 +164,54 @@ Widget build(BuildContext context){
           maxHeight: 360.0,
           minHeight: 150.0
       ),
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-          child:StaggeredGridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 12.0,
-        mainAxisSpacing:12.0,
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        children: <Widget>[
-          myItems(CustomIcons.happy_intersection, "Scanner un Qr Code", 0xfff2ab27, 0xff000000, '/scan'),
-          myItems(CustomIcons.pay, "Paiement", 0xff323E40, 0xffffffff, '/bottomnavclient/1'),
-          myItems(CustomIcons.qr_code, "Dernier Qr scan", 0xff323E40, 0xffffffff, '/lastScan'),
-          myItems(CustomIcons.invoice, "Historique", 0xff323E40, 0xffffffff, '/bottomnavclient/2'),
-        ],
-        staggeredTiles: [
-          StaggeredTile.extent(1, 150.0),
-          StaggeredTile.extent(1, 150.0),
-          StaggeredTile.extent(1, 150.0),
-          StaggeredTile.extent(1, 150.0),
-        ],
+          child:ListView(
+            
+              children: <Widget>[
+                //SizedBox(height: (MediaQuery.of(context).size.height/100)*6,),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: (MediaQuery.of(context).size.width/100)*6,),
+                    Container(
+                      width: (MediaQuery.of(context).size.width/100)*41,
+                      height: (MediaQuery.of(context).size.height/100)*25,
+                      child:  myItems(CustomIcons.happy_intersection, "Scanner un Qr Code", 0xfff2ab27, 0xff000000, '/scan'),
+                    ),
+                    SizedBox(width: (MediaQuery.of(context).size.width/100)*6,),
+                    Container(
+                      width: (MediaQuery.of(context).size.width/100)*41,
+                      height: (MediaQuery.of(context).size.height/100)*25,
+                      child:  myItems(CustomIcons.pay, "Paiement", 0xff323E40, 0xffffffff, '/bottomnavclient/1'),
+                    ),
+                    SizedBox(width: (MediaQuery.of(context).size.width/100)*6,),
+                  ],
+                ),
+                SizedBox(height: (MediaQuery.of(context).size.height/100)*6,),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: (MediaQuery.of(context).size.width/100)*6,),
+                    Container(
+                      width: (MediaQuery.of(context).size.width/100)*41,
+                      height: (MediaQuery.of(context).size.height/100)*25,
+                      child:  myItems(CustomIcons.qr_code, "Dernier Qr scan", 0xff323E40, 0xffffffff, '/lastScan'),
+                    ),
+                    SizedBox(width: (MediaQuery.of(context).size.width/100)*6,),
+                    Container(
+                      width: (MediaQuery.of(context).size.width/100)*41,
+                      height: (MediaQuery.of(context).size.height/100)*25,
+                      child:  myItems(CustomIcons.invoice, "Historique", 0xff323E40, 0xffffffff, '/bottomnavclient/2'),
+                    ),
+                    SizedBox(width: (MediaQuery.of(context).size.width/100)*6,),
+                  ],
+                ),
+              ],
+            
+        
+         
+          
+          
+          
+        
       ),
-        )
       ),
       ],
     ),
